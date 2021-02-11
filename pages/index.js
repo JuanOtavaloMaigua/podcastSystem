@@ -14,20 +14,17 @@ const App = (props)=>{
                     listPodcasts.map((item)=>{
                         return <div className="container_podcast" key={item.id}>
                             <div className="orverlapImg">
-                                <Link href="/listen">
-                                    <img src={item.urls.logo_image.original} alt="img podcast"/>
-                                </Link>
+                                <img src={item.urls.logo_image.original} alt="img podcast"/>
                                 <label>{item.recommendation.position}</label>
                             </div>
                             
                             <div>
-                                <Link href="/listen">
+                                <Link href={`/listen?id=${item.id}&name=${item.title}`} >
                                     <h3>{item.title}</h3>
                                 </Link>
                                 
                                 <div>{item.recommendation.default_follow ? <h4>Unfollow</h4>:<h4>Follow</h4>}</div>
                             </div>
-
                         </div>
                     })
                 }
